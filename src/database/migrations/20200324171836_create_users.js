@@ -4,6 +4,8 @@ exports.up = function(knex) {
 
     table.string('id').primary()
     table.string('name').notNullable()
+    table.string('cryptedPassword').notNullable()
+    table.string('imgUrlProfile')
     table.string('email').notNullable()
     table.string('wpp').notNullable()
     table.string('city').notNullable()

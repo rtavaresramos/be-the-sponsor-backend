@@ -10,6 +10,7 @@ routes.post('/sessions', SessionController.create)
 
 routes.get('/users', UserController.list)
 routes.post('/users', UserController.create)
+routes.delete('/users/:id', UserController.delete)
 
 routes.get('/profile', ProfileController.specified)
 
