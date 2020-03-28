@@ -1,12 +1,28 @@
+const crypto = require('crypto')
 const connection = require('../database/conection')
+
+
+const criptografying = {
+    algorithm : "aes-256-ctr",
+    secret : "keys",
+}
+
 
 module.exports = {
     async create(req, res){
-    const { id } = req.body
+
+    const {  email , password } = req.body
+
+
+        const cipher = crypto.createCipher(criptografying.algorithm, criptografying.secret)
+        const crypted = cipher.update(password, 'utf8', 'hex')
+
+
 
     const user = await connection('users')
-    .where('id', id)
-    .select('name')
+    .where('email', email )
+    .where('cryptedPassword' , crypted)
+    .select('id','name')
     .first()
     
     if(!user){
