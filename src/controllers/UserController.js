@@ -28,7 +28,7 @@ module.exports = {
             imgUrlProfile,
             email,
             wpp,
-            city,
+            city, 
             uf,
         })
     

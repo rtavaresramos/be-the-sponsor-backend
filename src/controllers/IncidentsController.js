@@ -30,7 +30,9 @@ module.exports = {
 
         const {title , description , value , motivation , url} = req.body
         const user_id = req.headers.authorization
+        const user_name = req.headers.name
        const [id] = await  connection('incidents').insert({
+           user_name,
            title,
            description,
            motivation,
